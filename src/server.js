@@ -1,11 +1,15 @@
+//require("./db/connection");
+//const cors = require("cors");
 const express = require("express");
+//const movieRouter = require("./movies/movieRoutes");
+//const userRouter = require("./users/userRoutes");
 const app = express();
-const port = 5001;
+const port = process.env.PORT || 5001;
 
-app.use("/profile", express.static("./public/profile.html"));
-app.use("/static/orders", express.static("./public/orders.html"));
-app.use("/static", express.static("public"));
-app.use("/static/products", express.static("./public/products.html"));
+app.use(express.json());
+//app.use(cors());
+//app.use(movieRouter);
+//app.use(userRouter);
 
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`);
